@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+html {
+    height: 100%;
+    /* font-size: 62.5%; */
+}
+.custom-login-form {
+    height: 400px;
+    padding-top: 10px;
+}
