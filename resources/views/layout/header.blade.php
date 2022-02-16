@@ -21,6 +21,18 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
+                @if (session('user'))
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">SignUp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Login</a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Cart(0)</a>
                 </li>

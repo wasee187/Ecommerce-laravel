@@ -11,7 +11,7 @@
                 <div class="form-group">
                   @csrf
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" name='email' class="form-control" id="email">
+                  <input type="email" name='email' class="form-control" id="email" value="{{old("email")}}">
                   <span class="err-msg">@error('email'){{$message}}@enderror</span>
                 </div>
                 <div class="form-group">

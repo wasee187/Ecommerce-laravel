@@ -33,7 +33,7 @@ class LoginController extends Controller
             return redirect()->back();
         }else{
             $request->session()->put('user',$user);
-            return redirect('/product');
+            return redirect('/');
         }
     }
 }
