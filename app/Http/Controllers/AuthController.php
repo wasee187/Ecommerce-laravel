@@ -7,13 +7,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
-    function LoginUser(Request $request){
-        // $request->validate([
-        //     'email'=> 'required',
-        //     'password'=> 'required',
-        // ]);
+    function Login(Request $request){
 
         $validator = Validator::make($request->all(), [
             'email' => 'required',
