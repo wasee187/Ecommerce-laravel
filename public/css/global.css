@@ -20,3 +20,6 @@ html {
     height: 400px;
     padding-top: 10px;
 }
+.err-msg {
+    color: red;
+}

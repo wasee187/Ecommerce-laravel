@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
+
+
+//group middleware for logged in users
+Route::group(['middleware' => ['loggedUser']],function(){
+    // login route
+    Route::get('/login',function () {
+        return view('login');
+    });
+    Route::post('/login',[LoginController::class,'LoginUser']);
+}) ;
+
+Route::get("/logout", function(){
+    if(session()->has('user')){
+        session()->pull('user');
+    }
+    return redirect('login');
+});
+
+Route::resource('product',ProductController::class);

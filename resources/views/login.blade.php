@@ -4,18 +4,24 @@
     <div class="row">
         <h2 class="login-h mt-3">Login</h2>
         <div class="col-lg-12">
-            <form>
+          @if(session('log_error'))
+            <p class="err-msg">{{session('log_error')}}</p>
+          @endif
+            <form action='login' method='POST'>
                 <div class="form-group">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4">
+                  @csrf
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" name='email' class="form-control" id="email">
+                  <span class="err-msg">@error('email'){{$message}}@enderror</span>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" name='password' class="form-control" id="password">
+                  <span class="err-msg">@error('password'){{$message}}@enderror</span>
                 </div>
             
                 <div class="col-12 mt-3">
-                  <button type="submit" class="btn btn-primary">Sign in</button>
+                  <button type="submit" class="btn btn-primary">Login</button>
                 </div>
               </form>
         </div>
