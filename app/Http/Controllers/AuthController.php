@@ -9,6 +9,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    //login function
     function Login(Request $request){
 
         $validator = Validator::make($request->all(), [
@@ -31,5 +32,24 @@ class AuthController extends Controller
             $request->session()->put('user',$user);
             return redirect('/');
         }
+    }
+
+    //registration function 
+    function Register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'password'=> 'required|min:6|max:20|confirmed',
+            'confirm_password'=>'required|min:6|max:20'
+        ]);
+ 
+        if ($validator->fails()) {
+
+            return redirect('register')
+                        ->withErrors($validator)
+                        ->withInput();
+
+        }
+        return "Registration Successful";
     }
 }
